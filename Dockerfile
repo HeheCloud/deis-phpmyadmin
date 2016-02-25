@@ -21,7 +21,7 @@ RUN chmod +x /app/bin/boot
 RUN chmod +x /app/bin/clean
 
 
-EXPOSE 8000
+EXPOSE 80
 
 ENV PHP_UPLOAD_MAX_FILESIZE=256M \
     PHP_MAX_INPUT_VARS=4096
