@@ -1,6 +1,10 @@
 FROM phpmyadmin/phpmyadmin:latest
 MAINTAINER Cloud Mario <smcz@qq.com>
 
+# install common packages
+RUN apk add --update-cache bash sudo && \
+	rm -rf /var/cache/apk/*
+
 # install etcdctl
 RUN curl -sSL -o /usr/local/bin/etcdctl http://sinacloud.net/hehe/etcd/etcdctl-v0.4.9 \
 	&& chmod +x /usr/local/bin/etcdctl
