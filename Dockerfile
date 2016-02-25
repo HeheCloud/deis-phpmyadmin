@@ -1,6 +1,10 @@
 FROM phpmyadmin/phpmyadmin:latest
 MAINTAINER Cloud Mario <smcz@qq.com>
 
+# install common packages
+RUN apk add --update-cache bash sudo && \
+	rm -rf /var/cache/apk/*
+
 # install etcdctl
 RUN curl -sSL -o /usr/local/bin/etcdctl http://sinacloud.net/hehe/etcd/etcdctl-v0.4.9 \
 	&& chmod +x /usr/local/bin/etcdctl
@@ -17,9 +21,11 @@ RUN chmod +x /app/bin/boot
 RUN chmod +x /app/bin/clean
 
 
-EXPOSE 8000
+EXPOSE 80
 
 ENV PHP_UPLOAD_MAX_FILESIZE=256M \
     PHP_MAX_INPUT_VARS=4096
 
-ENTRYPOINT ["/app/bin/boot"]
+ENTRYPOINT []
+
+CMD ["/app/bin/boot"]
