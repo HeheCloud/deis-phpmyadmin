@@ -26,4 +26,6 @@ EXPOSE 8000
 ENV PHP_UPLOAD_MAX_FILESIZE=256M \
     PHP_MAX_INPUT_VARS=4096
 
-ENTRYPOINT ["/app/bin/boot"]
+ENTRYPOINT ["exec"]
+
+CMD ["/app/bin/boot"]
