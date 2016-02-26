@@ -1,7 +1,5 @@
 [Unit]
 Description=deis-phpmyadmin
-Wants=deis-mysql.service
-After=deis-mysql.service
 
 [Service]
 EnvironmentFile=/etc/environment
